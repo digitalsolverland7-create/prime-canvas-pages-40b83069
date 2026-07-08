@@ -14,7 +14,98 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      messages: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          message: string | null
+          name: string
+          phone: string | null
+          property_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name: string
+          phone?: string | null
+          property_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string
+          phone?: string | null
+          property_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "messages_property_id_fkey"
+            columns: ["property_id"]
+            isOneToOne: false
+            referencedRelation: "properties"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      properties: {
+        Row: {
+          area: number | null
+          audio_tracks: Json
+          canva_embed_url: string | null
+          created_at: string
+          description: string | null
+          featured: boolean
+          features: Json
+          id: string
+          images: string[]
+          location: string | null
+          price: string | null
+          slug: string | null
+          source_url: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          area?: number | null
+          audio_tracks?: Json
+          canva_embed_url?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          features?: Json
+          id?: string
+          images?: string[]
+          location?: string | null
+          price?: string | null
+          slug?: string | null
+          source_url?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          area?: number | null
+          audio_tracks?: Json
+          canva_embed_url?: string | null
+          created_at?: string
+          description?: string | null
+          featured?: boolean
+          features?: Json
+          id?: string
+          images?: string[]
+          location?: string | null
+          price?: string | null
+          slug?: string | null
+          source_url?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
